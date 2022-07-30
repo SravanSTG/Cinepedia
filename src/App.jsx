@@ -42,9 +42,7 @@ const App = () => {
 
   const getCurrentList = () => {
     axios.get(activeUrl).then((response) => {
-      setIsLoading(true);
       setCurrentArr(response.data.results);
-      setIsLoading(false);
     });
   };
 
