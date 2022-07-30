@@ -6,6 +6,7 @@ import Search from "./components/Search";
 import CurrentList from "./components/pages/CurrentList";
 import MovieDetails from "./components/pages/MovieDetails";
 import { Route, Routes, Link } from "react-router-dom";
+import Loading from "./components/Loading";
 
 import "./index.css";
 
@@ -15,6 +16,8 @@ const App = () => {
   const [activeUrl, setActiveUrl] = useState(
     `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_API_KEY}`
   );
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const [searchedMovie, setSearchedMovie] = useState("");
   const [searchResultArr, setSearchResultArr] = useState([]);
@@ -39,7 +42,9 @@ const App = () => {
 
   const getCurrentList = () => {
     axios.get(activeUrl).then((response) => {
+      setIsLoading(true);
       setCurrentArr(response.data.results);
+      setIsLoading(false);
     });
   };
 
@@ -50,6 +55,7 @@ const App = () => {
   };
 
   const fetchMovieDetails = () => {
+    setIsLoading(true);
     axios.get(movieDetailsUrl).then((response) => {
       setMovieDetails({
         title: response.data.title,
@@ -70,12 +76,9 @@ const App = () => {
         productionCompany: response.data.production_companies[0].name,
         backdropPath: response.data.backdrop_path,
       });
+      setIsLoading(false);
     });
   };
-
-  if (movieId !== 0) {
-    fetchMovieDetails();
-  }
 
   useEffect(() => {
     getCurrentList();
@@ -84,6 +87,10 @@ const App = () => {
   }, [activeList]);
 
   useEffect(() => {
+    if (movieId !== 0) {
+      fetchMovieDetails();
+    }
+
     window.sessionStorage.setItem("movieId", movieId);
   }, [movieId]);
 
@@ -100,12 +107,16 @@ const App = () => {
           exact
           path="/"
           element={
-            <Home
-              currentArr={currentArr}
-              setActiveList={setActiveList}
-              setActiveUrl={setActiveUrl}
-              setMovieId={setMovieId}
-            />
+            isLoading ? (
+              <Loading />
+            ) : (
+              <Home
+                currentArr={currentArr}
+                setActiveList={setActiveList}
+                setActiveUrl={setActiveUrl}
+                setMovieId={setMovieId}
+              />
+            )
           }
         />
         <Route
@@ -135,7 +146,13 @@ const App = () => {
         />
         <Route
           path="/movie/:id"
-          element={<MovieDetails movieDetails={movieDetails} />}
+          element={
+            isLoading ? (
+              <Loading />
+            ) : (
+              <MovieDetails movieDetails={movieDetails} />
+            )
+          }
         />
       </Routes>
     </div>
