@@ -119,6 +119,13 @@ nav {
   color: #ffe227;
 }
 
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
 .current-list-container {
   margin: 50px 0;
 }
@@ -301,4 +308,249 @@ nav {
 }
 
 @media screen and (max-width: 900px) {
+  .search {
+    width: 300px;
+  }
+
+  .collections {
+    width: unset;
+  }
+
+  .current-list-movies {
+    justify-items: center;
+  }
+
+  .actor-container {
+    justify-items: center;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  nav {
+    padding: 10px 50px;
+  }
+
+  .trending-icon,
+  .now-playing-icon,
+  .top-rated-icon,
+  .upcoming-icon {
+    font-size: 1.5rem;
+  }
+
+  .collections {
+    margin: 20px 50px 0;
+  }
+
+  .collections > .collections-inner > p {
+    font-size: 0.9rem;
+  }
+
+  .current-list-movies {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-gap: 40px;
+    padding: 0 50px;
+  }
+
+  .movie-card {
+    width: 180px;
+    height: 270px;
+  }
+
+  .detail-container {
+    padding: 0 20px 30px 30px;
+  }
+
+  .cast-container {
+    margin: 50px;
+  }
+
+  .actor-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .actor-card {
+    width: 180px;
+  }
+
+  .actor-img {
+    width: 180px;
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  nav {
+    padding: 10px 30px 20px;
+  }
+
+  .search {
+    width: 220px;
+    font-size: 0.9rem;
+  }
+
+  .search-btn {
+    width: 60px;
+  }
+
+  .search-btn a {
+    font-size: 0.9rem;
+  }
+
+  .collections {
+    margin: 20px;
+  }
+
+  .trending-icon,
+  .now-playing-icon,
+  .top-rated-icon,
+  .upcoming-icon {
+    font-size: 1.25rem;
+  }
+
+  .collections > .collections-inner > p {
+    font-size: 0.85rem;
+  }
+
+  .current-list-movies {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-gap: 30px;
+    padding: 0 30px;
+  }
+
+  .movie-card {
+    width: 160px;
+    height: 240px;
+  }
+
+  .back-btn {
+    margin: 0 30px;
+  }
+
+  .movie-details-inner {
+    padding: 50px;
+  }
+
+  .cast-container {
+    margin: 50px 30px;
+  }
+
+  .actor-container {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 30px;
+  }
+
+  .actor-card {
+    width: 160px;
+  }
+
+  .actor-img {
+    width: 160px;
+    height: 230px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  nav {
+    padding: 10px 25px 20px;
+  }
+
+  .logo {
+    height: 40px;
+    width: 40px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .attribution {
+    width: 40px;
+    height: 20px;
+  }
+
+  .search {
+    width: 180px;
+  }
+
+  .search-icon {
+    margin-left: 10px;
+  }
+
+  .search-btn {
+    margin-left: 6px;
+  }
+
+  .trending-icon,
+  .now-playing-icon,
+  .top-rated-icon,
+  .upcoming-icon {
+    font-size: 1rem;
+  }
+
+  .collections > .collections-inner > p {
+    font-size: 0.8rem;
+  }
+
+  .current-list-movies {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-gap: 30px;
+    padding: 0 25px;
+  }
+
+  .movie-card {
+    width: 140px;
+    height: 210px;
+  }
+
+  .movie-details-inner {
+    padding: 50px 30px;
+  }
+
+  .cast-container {
+    margin: 50px 25px;
+  }
+
+  .actor-container {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .actor-card {
+    width: 140px;
+  }
+
+  .actor-img {
+    width: 140px;
+    height: 210px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .search {
+    width: 150px;
+  }
+
+  .collections {
+    margin: 20px 6px;
+  }
+
+  .current-list-movies {
+    padding: 0 10px;
+    grid-gap: 15px;
+  }
+
+  .movie-details-inner {
+    padding: 50px 15px;
+  }
+
+  .detail-container {
+    padding: 0 15px 30px 25px;
+  }
+
+  .cast-container {
+    margin: 50px 10px;
+  }
+
+  .actor-container {
+    gap: 15px;
+  }
 }
