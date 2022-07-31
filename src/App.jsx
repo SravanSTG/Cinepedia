@@ -105,16 +105,12 @@ const App = () => {
           exact
           path="/"
           element={
-            isLoading ? (
-              <Loading />
-            ) : (
-              <Home
-                currentArr={currentArr}
-                setActiveList={setActiveList}
-                setActiveUrl={setActiveUrl}
-                setMovieId={setMovieId}
-              />
-            )
+            <Home
+              currentArr={currentArr}
+              setActiveList={setActiveList}
+              setActiveUrl={setActiveUrl}
+              setMovieId={setMovieId}
+            />
           }
         />
         <Route
