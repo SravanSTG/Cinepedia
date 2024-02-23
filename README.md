@@ -20,9 +20,18 @@ A movie search app where you can get detailed information about movies. This app
 
 ## Usage
 
-Clone this repository to your local machine and run
+Clone this repository-
+```
+git clone https://github.com/SravanSTG/Cinepedia.git
+cd Cinepedia
+```
 
-```sh
-$ cd Cinepedia
-$ npm start
+Install dependencies
+```
+npm install
+```
+
+Run the application
+```
+npm start
 ```
